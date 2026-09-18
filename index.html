@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Danny's Pizzas</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Playwrite+BR+Guides&family=Playwrite+DE+SAS+Guides&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <button onclick="showPage('homepage')">Home</button>
+            <button onclick="showPage('menu')">Menu</button>
+            <button onclick="showPage('about')">About Us</button>
+            <button onclick="showPage('reserve')">Reserve</button>
+        </nav>
+    </header>
+    <section class="page active" id="homepage">
+        <section class="hero">
+            <h1>Danny's Pizzas</h1>
+            <p><span id="welcome-message">Welcome to the website of Danny's Pizzas! The most delicious pizzas in town! Made with the freshest ingredients and baked to perfection. Reserve your spot today!</span></p>
+            <div class="hero-buttons">
+                <button onclick="showPage('menu')">See our menu</button>
+                <button onclick="showPage('reserve')">Reserve a Table</button>
+            </div>
+        </section>
+        <section class="fire-section">
+            <video autoplay muted loop playsinline id="fire-video">
+                <source src="videos/17063206-hd_720_1280_24fps.mp4" type="video/mp4">
+            </video>
+            <div class="description">
+                <p><span id='description-pizzas'>In the heat of our ovens, our pizzas are baked to perfection with a crispy crust, a rich tomato sauce, and the freshest ingredients.</span></p>
+            </div>
+        </section>
+        <div id = "section-tekst">
+        <h2>Our Specialties</h2>
+        </div>
+        <section class="specialties">
+            <div class="specialty">
+                <h3>Pizza Margherita</h3>
+                <p>A classic favorite with fresh tomatoes, mozzarella, cheese, basil and some olive oil.</p>
+                <img src="images/pizzamargerita.jpg" alt="Pizza Margherita">
+            </div>
+            <div class="specialty">
+                <h3>Pizza Pepperoni</h3>
+                <p>A delicious pizza topped with pepperoni, mozzarella cheese, and tomato sauce with a bit of black pepper.</p>
+                <img src="images/Pepperoni-pizza-1.webp" alt="Pizza Pepperoni">
+            </div>
+            <div class="specialty">
+                <h3>Pizza Capricciosa</h3>
+                <p>A delightful pizza with a variety of toppings including mushrooms, olives, and ham.</p>
+                <img src="images/pizza-capricciosa.jpeg" alt="Pizza Capricciosa">
+            </div>
+            <div class="specialty">
+                <h3>Pizza Hawaiian</h3>
+                <p>A tropical delight with pineapple, ham, mozzarella cheese, and tomato sauce.</p>
+                <img src="images/pizza-hawaii.jpg" alt="Pizza Hawaiian">
+            </div>
+            <div class="specialty">
+                <h3>Pizza Quattro Formaggi</h3>
+                <p>A cheese lover's dream with a blend of four different cheeses: mozzarella, gorgonzola, parmesan, and fontina.</p>
+                <img src="images/pizza-quatroformaggi.webp" alt="Pizza Quattro Formaggi">
+            </div>
+            <div class="specialty">
+                <h3>Pizza Diavola</h3>
+                <p>A spicy pizza with hot salami, mozzarella cheese, and tomato sauce.</p>
+                <img src="images/pizza-diavola.avif" alt="Pizza Diavola">
+            </div>
+            <div class="specialty">
+                <h3>Pizza Prosciutto e Funghi</h3>
+                <p>A savory pizza with prosciutto, mushrooms, mozzarella cheese, and tomato sauce.</p>
+                <img src="images/pizza-proscittoefungi.avif" alt="Pizza Prosciutto e Funghi">
+            </div>
+            <div class="specialty">
+                <h3>Pizza Vegetariana</h3>
+                <p>A healthy option with a variety of fresh vegetables including bell peppers, onions, mushrooms, and olives.</p>
+                <img src="images/pizza-vegetaria.jpg" alt="Pizza Vegetariana">
+            </div>
+        </section>
+    </section>
+    <section class="page" id="menu">
+    <h2>Our Menu</h2>
+    <p>Check out our full menu of delicious pizzas and other tasty items!</p>
+    <div class="menu-section">
+        <div class="container1">
+            <h3>Soft drinks</h3>
+            <ul class="products-list" id="soft-drinks">
+                <li><span class="naam">Coca-Cola</span><span class="prijs">2.50$</span></li>
+                <li><span class="naam">Fanta Orange/Lemon</span><span class="prijs">2.50$</span></li>
+                <li><span class="naam">Sprite</span><span class="prijs">2.50$</span></li>
+                <li><span class="naam">Ice Tea (green/sparkling)</span><span class="prijs">2.75$</span></li>
+                <li><span class="naam">Water 250ml (still/sparkling)</span><span class="prijs">2.00$</span></li>
+                <li><span class="naam">Water 750ml (still/sparkling)</span><span class="prijs">4.50$</span></li>    
+            </ul>
+
+            <h3>Alcoholic drinks</h3>
+            <ul class="products-list" id="alcoholic-drinks">
+                <li><span class="naam">Beer (Heineken, Amstel)</span><span class="prijs">3.50$</span></li>
+                <li><span class="naam">Wine (red/white)</span><span class="prijs">7.00$</span></li>
+                <li><span class="naam">Cider</span><span class="prijs">6.00$</span></li>
+                <li><span class="naam">Whiskey</span><span class="prijs">8.00$</span></li>
+                <li><span class="naam">Vodka</span><span class="prijs">10.00$</span></li>
+                <li><span class="naam">Cocktail</span><span class="prijs">10.00$</span></li>
+            </ul>
+
+            <h3>Hot drinks</h3>
+            <ul class="products-list" id="hot-drinks">
+                <li><span class="naam">Espresso</span><span class="prijs">3.50$</span></li>
+                <li><span class="naam">Americano</span><span class="prijs">3.50$</span></li>
+                <li><span class="naam">Cappuccino</span><span class="prijs">3.50$</span></li>
+                <li><span class="naam">Latte</span><span class="prijs">4.00$</span></li>
+                <li><span class="naam">Hot Chocolate</span><span class="prijs">3.50$</span></li>
+                <li><span class="naam">Tea</span><span class="prijs">3.00$</span></li>
+            </ul>
+        </div>
+        <div class="container2">
+            <h3>Starters</h3>
+            <ul class="products-list" id="starters">
+                <li><span class="naam">Garlic Bread</span><span class="prijs">5.00$</span></li>
+                <li><span class="naam">Bruschetta</span><span class="prijs">6.00$</span></li>
+                <li><span class="naam">Caprese Salad</span><span class="prijs">8.00$</span></li>
+                <li><span class="naam">Greek Salad</span><span class="prijs">7.50$</span></li>
+                <li><span class="naam">Stuffed Mushrooms</span><span class="prijs">10.00$</span></li>
+                <li><span class="naam">Carpaccio</span><span class="prijs">9.00$</span></li>
+                <li><span class="naam">Chicken Wings</span><span class="prijs">8.00$</span></li>
+            </ul>
+
+            <h3>Pizzas</h3>
+            <ul class="products-list" id="pizzas">
+                <li><span class="naam">Pizza Margherita</span><span class="prijs">10.00$</span></li>
+                <li><span class="naam">Pizza Pepperoni</span><span class="prijs">12.00$</span></li>
+                <li><span class="naam">Pizza Capricciosa</span><span class="prijs">14.00$</span></li>
+                <li><span class="naam">Pizza Hawaiian</span><span class="prijs">12.00$</span></li>
+                <li><span class="naam">Pizza Quattro Formaggi</span><span class="prijs">14.00$</span></li>
+                <li><span class="naam">Pizza Diavola</span><span class="prijs">15.00$</span></li>
+                <li><span class="naam">Pizza Prosciutto e Funghi</span><span class="prijs">17.00$</span></li>
+                <li><span class="naam">Pizza Vegetariana</span><span class="prijs">13.00$</span></li>
+            </ul>
+
+            <h3>Desserts</h3>
+            <ul class="products-list" id="desserts">
+                <li><span class="naam">Tiramisu</span><span class="prijs">7.50$</span></li>
+                <li><span class="naam">Chocolate pancake</span><span class="prijs">6.00$</span></li>
+                <li><span class="naam">Panna Cotta</span><span class="prijs">7.00$</span></li>
+                <li><span class="naam">Chocolate Cake</span><span class="prijs">5.50$</span></li>
+                <li><span class="naam">Ice Cream (Vanilla/Chocolate/Strawberry)</span><span class="prijs">2.00$/bowl</span></li>
+                <li><span class="naam">Cheesecake</span><span class="prijs">6.50$</span></li>
+                <li><span class="naam">Fruit Salad</span><span class="prijs">8.00$</span></li>
+                <li><span class="naam">Creme Brulee</span><span class="prijs">7.50$</span></li>
+            </ul>
+        </div>
+    </div>
+    </section>
+
+        </div>
+    </section>
+    <section class="page" id="about">
+        <section class="section1">
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p><span id="part1">Welcome to Danny's Pizzas! We are a family-owned pizzeria that has been serving the community for over 20 years. Our mission is to provide the best pizza in town, made with fresh ingredients and delivered with a smile. Our goal is to exceed your expectations with every bite.</span></p>
+            </div>
+        </section>
+        <section class="section2">
+            <div class="about-content2">
+                <p><span id="part2">At Danny's Pizzas, we believe that great pizza starts with great ingredients and a passion for perfection. Thats's why we source only the finest materials and pay attention to every detail. Our crust is made fresh daily using traditional methods. And our vegetables are sourced from local farms. We use no artificial ingredients.</span></p>
+            </div>
+        </section>
+        <section class="section3">
+            <p><span id = "part3">Thank you for choosing Danny's Pizzas. We look forward to serving you!</span></p>
+        </section>
+    </section>
+    <section class="page" id="reserve">
+        <h2>Reserve a table</h2>
+        <p>Book your table now and enjoy the best pizza in town!</p>
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <input type="number" id="guests" placeholder="Number of Guests">
+        <input type="datetime-local" id="date">
+        <input type="text" id="special-notes" placeholder="Any special notes?">
+        <button onclick="reserveTable()">Reserve</button>
+    </section>
+    <footer>
+        <h2>Contact Us</h2>
+        <p>Phone number: 0638244055</p>
+        <p>Email: info@dannyspizzas.com</p>
+        <p>Address: 123 Pizza Street, Flavor Town, USA</p>
+    </footer>
