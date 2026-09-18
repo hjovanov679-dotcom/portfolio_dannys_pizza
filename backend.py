@@ -49,7 +49,7 @@ def send_confirmation():
         "to": [os.environ["DEMO_EMAIL_TO"]],
         "subject": "bevesteging reservering",
         "text": (
-            f"Thank you for your reservation at Danny's Pizzas {safe_name} with {safe_guests} amount of guests on {safe_date}. We look forward serving you!"
+            f"Thank you for your reservation at Danny's Pizzas {safe_name} with {safe_guests} people on {safe_date}. We look forward serving you!"
         )
     }
 
