@@ -41,19 +41,30 @@ def send_confirmation():
         return jsonify({"message": "Vul een geldig e-mailadres in!"}), 400
     resend.api_key = os.getenv("RESEND_API_KEY")
 
-    sender = os.getenv("EMAIL_FROM", "Danny's Pizzas <onboarding@resend.dev>")
+    sender = os.getenv("EMAIL_FROM", "Danny's Pizzas <reservations@dannyspizza.nl>")
     recipient_name = escape(name or "there")
 
     customer_mail = {
         "from": sender,
-        "to": [os.environ["DEMO_EMAIL_TO"]],
+        "to": [safe_email],
         "subject": "bevesteging reservering",
         "text": (
-            f"Thank you for your reservation at Danny's Pizzas {safe_name} with {safe_guests} people on {safe_date}. We look forward serving you!"
+            f"Thank you for your reservation at Danny's Pizzas {safe_name} with {safe_guests} amount of guests on {safe_date}. We look forward serving you!"
         )
     }
 
-    try: resend.Emails.send(customer_mail)
+    personal_mail = {
+        "from": sender,
+        "to": ["hjovanov679@gmail.com"],
+        "subject": "Nieuwe reservering",
+        "text": (
+            f"Nieuwe reservering van {safe_name} met {safe_guests} gasten op {safe_date}. Notities: {safe_notes}"
+        )
+    }
+
+    try:
+        resend.Emails.send(customer_mail)
+        resend.Emails.send(personal_mail)
     except Exception as error:
         print(error)
         return jsonify({
@@ -62,4 +73,3 @@ def send_confirmation():
     return jsonify({
         "message": "Reservering ontvangen!"
     }), 200
-
