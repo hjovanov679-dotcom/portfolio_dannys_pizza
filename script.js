@@ -1,3 +1,4 @@
+
 function showPage(pageid) {
     var pages = document.querySelectorAll('.page');
     pages.forEach(page => {
@@ -56,7 +57,22 @@ async function reserveTable() {
     const inputGuests = guests.value
     const inputDate = date.value
     const inputNotes = notes.value
-
+    const reservationMessage = document.getElementById('reservation-message');
+   
+    if (!inputName || !inputEmail || !inputGuests || !inputDate) {
+        reservationMessage.textContent = 'Please fill in all required fields.';
+        return;
+    } else if (isNaN(inputGuests) || inputGuests <= 0) {
+        reservationMessage.textContent = 'Please enter a valid number of guests.';
+        return;
+    } else if (inputEmail.indexOf('@') === -1) {
+        reservationMessage.textContent = 'Please enter a valid email address.';
+        return;
+    }
+    if (new Date(inputDate) < new Date()) {
+        reservationMessage.textContent = 'Please enter a valid date.';
+        return;
+    }
     const frontendData = {
         name: inputName,
         email: inputEmail,
@@ -78,14 +94,17 @@ async function reserveTable() {
             throw new Error(`Server fout: ${response.status}`);
         }
         const result = await response.json()
-        console.log('Succesvol ontvangen!')
         reservationMessage.textContent = 'Reservation successful!';
         reservationMessage.style.color = 'white';
+        console.log('Succesvol ontvangen!')
     }
     catch (error) {
+        reservationMessage.textContent = 'Reservation failed. Please try again.';
+        reservationMessage.style.color = 'red';
         console.error('Er ging iets mis:', error);
     }
 }
+
 
 
 
