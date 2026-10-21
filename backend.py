@@ -53,7 +53,7 @@ def send_confirmation():
 
     datum_voor_email = (
         f"{datum.day} {maanden[datum.month - 1]} {datum.year} "
-        f"om {datum:%H:%M}"
+        f"at {datum:%H:%M}"
     )
 
     if not email or "@" not in email:
