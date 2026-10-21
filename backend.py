@@ -1,5 +1,6 @@
 import os
 from html import escape
+from datetime import datetime
 
 import resend
 from flask import Flask, jsonify, request, send_from_directory
@@ -37,6 +38,24 @@ def send_confirmation():
     safe_date = escape(date)
     safe_notes = escape(notes)
 
+    try:
+        datum = datetime.fromisoformat(date)
+    except ValueError:
+        return jsonify({
+            "message": "Vul een geldige datum en tijd in."
+        }), 400
+
+    maanden = [
+        "januari", "februari", "maart", "april",
+        "mei", "juni", "juli", "augustus",
+        "september", "oktober", "november", "december"
+    ]
+
+    datum_voor_email = (
+        f"{datum.day} {maanden[datum.month - 1]} {datum.year} "
+        f"om {datum:%H:%M}"
+    )
+
     if not email or "@" not in email:
         return jsonify({"message": "Vul een geldig e-mailadres in!"}), 400
     resend.api_key = os.getenv("RESEND_API_KEY")
@@ -49,7 +68,7 @@ def send_confirmation():
         "to": [safe_email],
         "subject": "bevesteging reservering",
         "text": (
-            f"Thank you for your reservation at Danny's Pizzas {safe_name} with {safe_guests} amount of guests on {safe_date}. We look forward serving you!"
+            f"Thank you for your reservation at Danny's Pizzas {safe_name} with {safe_guests} guests on {datum_voor_email}. We look forward serving you!"
         )
     }
 
@@ -58,7 +77,7 @@ def send_confirmation():
         "to": ["hjovanov679@gmail.com"],
         "subject": "Nieuwe reservering",
         "text": (
-            f"Nieuwe reservering van {safe_name} met {safe_guests} gasten op {safe_date}. Notities: {safe_notes}"
+            f"Nieuwe reservering van {safe_name} met {safe_guests} gasten op {datum_voor_email}. Notities: {safe_notes}"
         )
     }
 
