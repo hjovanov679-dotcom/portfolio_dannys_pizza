@@ -79,6 +79,8 @@ async function reserveTable() {
         }
         const result = await response.json()
         console.log('Succesvol ontvangen!')
+        reservationMessage.textContent = 'Reservation successful!';
+        reservationMessage.style.color = 'white';
     }
     catch (error) {
         console.error('Er ging iets mis:', error);
