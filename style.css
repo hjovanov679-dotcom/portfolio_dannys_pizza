@@ -257,7 +257,17 @@ header a {
     padding: 10px;
     font-size: 16px;
     width: 500px;
-    background-color: #f2f2f2;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 2px solid #C5A059;
+}
+
+#reservation-message {
+    font-size: 16px;
+    color: red;
+    text-align: center;
+    margin-top: 10px;
 }
 #reserve button {
     display: block;
@@ -398,7 +408,7 @@ header a {
     .hero h1 {
         position: static;
         transform: none;
-        margin: 0;
+        margin-bottom: 100px;
         max-width: 100%;
         font-size: clamp(40px, 7vw, 64px);
         line-height: 1.15;
@@ -409,6 +419,11 @@ header a {
         max-width: 720px;
         margin: 0;
     }
+
+    .hero { justify-content: flex-start; }
+    .hero h1 { margin: 0 0 80px; }
+    .hero > p { margin: 0; }
+    #welcome-message { width: 100%; margin: 0; }
 
     #welcome-message {
         display: block;
@@ -627,3 +642,4 @@ header a {
         width: min(100%, 280px);
     }
 }
+
