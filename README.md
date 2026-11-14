@@ -1,0 +1,1 @@
+A fictional website I made for a pizzaria. The frontend is written in html, css and javascript and the backend is written in Python. The backend checks if the input is correct and sends an automated email.
